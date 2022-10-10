@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bottom Navbar UI</title>
+    <!-- Ion Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li class="items active">
+          <div class="icon">
+            <ion-icon name="home-outline"></ion-icon>
+          </div>
+          <span class="text">Home</span>
+        </li>
+        <li class="items">
+          <div class="icon">
+            <ion-icon name="stats-chart-outline"></ion-icon>
+          </div>
+          <span class="text">History</span>
+        </li>
+        <li class="items">
+          <div class="icon">
+            <ion-icon name="person-outline"></ion-icon>
+          </div>
+          <span class="text">Profile</span>
+        </li>
+        <div class="indicator"></div>
+      </ul>
+    </div>
+
+    <!-- Ion Icons -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+
+    <!-- Js -->
+    <script>
+      const items = document.querySelectorAll(".items");
+      function activeItem() {
+        items.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      items.forEach((item) => item.addEventListener("click", activeItem));
+    </script>
+  </body>
+</html>

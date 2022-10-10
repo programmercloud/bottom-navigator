@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;500&display=swap");
+
+:root {
+  font-family: "Nunito", sans-serif;
+  --bg-body: #ebdef4;
+  --bg-active: #6b00b2;
+  --bg-deactivated: #b3b9c4;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-body);
+}
+
+.nav {
+  position: relative;
+  background-color: var(--white);
+  width: 310px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+}
+.nav ul {
+  width: 210px;
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.nav ul li {
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav ul li .icon {
+  position: relative;
+  color: var(--bg-deactivated);
+  font-size: 20px;
+  transition: 0.3s;
+  font-weight: 200;
+}
+
+.nav ul li.active .icon {
+  color: var(--bg-active);
+  transition: 0.3s;
+  font-weight: 500;
+  transform: translateY(-30px);
+  font-size: 25px;
+}
+
+.nav ul li .text {
+  position: absolute;
+  font-size: 12px;
+  color: var(--bg-deactivated);
+  font-weight: 200;
+  transition: 0.3s;
+  transform: translateY(30px);
+  opacity: 0;
+  letter-spacing: 0.05em;
+}
+
+.nav ul li.active .text {
+  color: var(--bg-active);
+  transition: 0.3s;
+  transform: translateY(15px);
+  font-weight: 500;
+  opacity: 1;
+}
+
+.indicator {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: var(--white);
+  top: -50%;
+  border-radius: 50%;
+  border: 6px solid var(--bg-body);
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -14.2px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--white);
+  border-radius: 0 100% 0 0;
+  box-shadow: 1px -5px 0 0 var(--bg-body);
+}
+
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -14.5px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--white);
+  border-radius: 100% 0 0 0;
+  box-shadow: -1px -5px 0 0 var(--bg-body);
+}
+
+.nav ul li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(70px * 0));
+}
+.nav ul li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(70px * 1));
+}
+.nav ul li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(70px * 2));
+}
